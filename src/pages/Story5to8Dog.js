@@ -1,11 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Story5to8Dog() {
   return (
     <div style={{ padding: "40px", maxWidth: "600px", margin: "auto" }}>
-      <h1 style={{ color: "#4f46e5", textAlign: "center" }}>
-        The Dog Story
-      </h1>
+      <h1 style={{ color: "#4f46e5", textAlign: "center" }}>The Dog Story</h1>
 
       <div
         style={{
@@ -36,15 +35,31 @@ function Story5to8Dog() {
           textAlign: "center",
         }}
       >
-        A fun and sweet story about a playful dog and his little friend.
+        A fun story about a friendly dog and his little adventure.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
-        <source
-          src="https://files.catbox.moe/m2gfns.mp3"
-          type="audio/mp3"
-        />
+        <source src="https://files.catbox.moe/m2gfns.mp3" type="audio/mp3" />
       </audio>
+
+      {/* زر الكويز */}
+      <Link to="/quiz-dog">
+        <button
+          style={{
+            background: "#4f46e5",
+            color: "white",
+            border: "none",
+            padding: "12px 25px",
+            borderRadius: "10px",
+            marginTop: "25px",
+            cursor: "pointer",
+            fontSize: "18px",
+            width: "100%",
+          }}
+        >
+          Start Quiz
+        </button>
+      </Link>
     </div>
   );
 }

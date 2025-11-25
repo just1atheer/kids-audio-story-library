@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Story8to12SunWind() {
+export default function Story8to12SunWind() {
   return (
-    <div style={{ padding: "40px", maxWidth: "700px", margin: "auto" }}>
+    <div style={{ padding: "40px", maxWidth: "650px", margin: "auto" }}>
       <h1 style={{ color: "#4f46e5", textAlign: "center" }}>
-        The Sun and the Wind
+        The Sun and The Wind
       </h1>
 
       <div
@@ -34,22 +35,33 @@ function Story8to12SunWind() {
           fontSize: "18px",
           color: "#555",
           textAlign: "center",
-          lineHeight: "1.6",
         }}
       >
-        A classic story where the sun and the wind test their strength to see
-        who can make a traveler remove his coat. A gentle lesson about kindness
-        being stronger than force.
+        A classic story about the Sun and the Wind trying to prove who is
+        stronger.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
-        <source
-          src="https://files.catbox.moe/n89fox.mp3"
-          type="audio/mp3"
-        />
+        <source src="https://files.catbox.moe/n89fox.mp3" type="audio/mp3" />
       </audio>
+
+      <Link to="/quiz-sunwind">
+        <button
+          style={{
+            background: "#4f46e5",
+            color: "white",
+            border: "none",
+            padding: "12px 25px",
+            borderRadius: "10px",
+            marginTop: "25px",
+            cursor: "pointer",
+            fontSize: "18px",
+            width: "100%",
+          }}
+        >
+          Start Quiz
+        </button>
+      </Link>
     </div>
   );
 }
-
-export default Story8to12SunWind;

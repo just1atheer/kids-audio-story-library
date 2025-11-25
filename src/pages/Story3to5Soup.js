@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Story3to5Soup() {
   return (
@@ -36,15 +37,31 @@ function Story3to5Soup() {
           textAlign: "center",
         }}
       >
-        A short and cozy story about warm soup that helps a little child feel better.
+        A cozy and simple story about a mother making warm soup in the kitchen.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
-        <source
-          src="https://files.catbox.moe/60iql0.mp3"
-          type="audio/mp3"
-        />
+        <source src="https://files.catbox.moe/60iql0.mp3" type="audio/mp3" />
       </audio>
+
+      {/* زر الكويز */}
+      <Link to="/quiz-soup">
+        <button
+          style={{
+            background: "#4f46e5",
+            color: "white",
+            border: "none",
+            padding: "12px 25px",
+            borderRadius: "10px",
+            marginTop: "25px",
+            cursor: "pointer",
+            fontSize: "18px",
+            width: "100%",
+          }}
+        >
+          Start Quiz
+        </button>
+      </Link>
     </div>
   );
 }

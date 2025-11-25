@@ -1,11 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Story5to8Bread() {
   return (
     <div style={{ padding: "40px", maxWidth: "600px", margin: "auto" }}>
-      <h1 style={{ color: "#4f46e5", textAlign: "center" }}>
-        The Bread Story
-      </h1>
+      <h1 style={{ color: "#4f46e5", textAlign: "center" }}>The Bread Story</h1>
 
       <div
         style={{
@@ -36,15 +35,31 @@ function Story5to8Bread() {
           textAlign: "center",
         }}
       >
-        A heartwarming story that teaches sharing and kindness.
+        A fun story about a monkey and a cat fighting over bread.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
-        <source
-          src="https://files.catbox.moe/1ig6rp.mp3"
-          type="audio/mp3"
-        />
+        <source src="https://files.catbox.moe/1ig6rp.mp3" type="audio/mp3" />
       </audio>
+
+      {/* زر الكويز */}
+      <Link to="/quiz-bread">
+        <button
+          style={{
+            background: "#4f46e5",
+            color: "white",
+            border: "none",
+            padding: "12px 25px",
+            borderRadius: "10px",
+            marginTop: "25px",
+            cursor: "pointer",
+            fontSize: "18px",
+            width: "100%",
+          }}
+        >
+          Start Quiz
+        </button>
+      </Link>
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Story8to12Lion() {
   return (
-    <div style={{ padding: "40px", maxWidth: "700px", margin: "auto" }}>
+    <div style={{ padding: "40px", maxWidth: "600px", margin: "auto" }}>
       <h1 style={{ color: "#4f46e5", textAlign: "center" }}>
-        The Brave Lion
+        The Lion Story
       </h1>
 
       <div
@@ -34,19 +35,33 @@ function Story8to12Lion() {
           fontSize: "18px",
           color: "#555",
           textAlign: "center",
-          lineHeight: "1.6",
         }}
       >
-        A brave lion faces a challenge and learns an important lesson about
-        courage and kindness.
+        A brave lion gets startled by a mysterious noise in the forest.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
-        <source
-          src="https://files.catbox.moe/jkfts2.mp3"
-          type="audio/mp3"
-        />
+        <source src="https://files.catbox.moe/jkfts2.mp3" type="audio/mp3" />
       </audio>
+
+      {/* زر الكويز */}
+      <Link to="/quiz-lion">
+        <button
+          style={{
+            background: "#4f46e5",
+            color: "white",
+            border: "none",
+            padding: "12px 25px",
+            borderRadius: "10px",
+            marginTop: "25px",
+            cursor: "pointer",
+            fontSize: "18px",
+            width: "100%",
+          }}
+        >
+          Start Quiz
+        </button>
+      </Link>
     </div>
   );
 }

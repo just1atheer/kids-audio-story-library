@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function StoryIceCream() {
   return (
     <div style={{ padding: "40px", maxWidth: "600px", margin: "auto" }}>
       <h1 style={{ color: "#4f46e5", textAlign: "center" }}>
-        The Ice Cream Girl
+        Ice Cream Girl
       </h1>
 
       <div
@@ -36,15 +37,31 @@ function StoryIceCream() {
           textAlign: "center",
         }}
       >
-        A joyful and simple story about a girl enjoying her favorite ice cream.
+        A sweet little story about a girl waiting happily for her ice-cream.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
-        <source
-          src="https://files.catbox.moe/c4iwfh.mp3"
-          type="audio/mp3"
-        />
+        <source src="https://files.catbox.moe/c4iwfh.mp3" type="audio/mp3" />
       </audio>
+
+      {/* زر الكويز */}
+      <Link to="/quiz-icecream">
+        <button
+          style={{
+            background: "#4f46e5",
+            color: "white",
+            border: "none",
+            padding: "12px 25px",
+            borderRadius: "10px",
+            marginTop: "25px",
+            cursor: "pointer",
+            fontSize: "18px",
+            width: "100%",
+          }}
+        >
+          Start Quiz
+        </button>
+      </Link>
     </div>
   );
 }
