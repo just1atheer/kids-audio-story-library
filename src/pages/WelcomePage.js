@@ -8,9 +8,8 @@ export default function WelcomePage() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // هنا لاحقاً تربطينه مع Firebase أو Spring Boot
-    console.log("Logging in with:", email, password);
-    alert("Login clicked! (Frontend only for now)");
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "/stories";
   };
 
   return (
@@ -21,7 +20,6 @@ export default function WelcomePage() {
         fontFamily: "Arial",
       }}
     >
-      {/* عنوان ترحيبي */}
       <h1 style={{ color: "#4f46e5", fontSize: "36px", marginBottom: "10px" }}>
         Welcome to Our Audio Stories Library
       </h1>
@@ -30,7 +28,6 @@ export default function WelcomePage() {
         Enjoy fun and educational stories for kids of all ages!
       </p>
 
-      {/* نموذج تسجيل الدخول */}
       <form
         onSubmit={handleLogin}
         style={{
@@ -42,13 +39,12 @@ export default function WelcomePage() {
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
         }}
       >
-        {/* Email */}
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
           required
+          onChange={(e) => setEmail(e.target.value)}
           style={{
             width: "100%",
             padding: "12px",
@@ -59,13 +55,12 @@ export default function WelcomePage() {
           }}
         />
 
-        {/* Password */}
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
           required
+          onChange={(e) => setPassword(e.target.value)}
           style={{
             width: "100%",
             padding: "12px",
@@ -76,7 +71,6 @@ export default function WelcomePage() {
           }}
         />
 
-        {/* زر تسجيل الدخول */}
         <button
           type="submit"
           style={{
@@ -93,7 +87,6 @@ export default function WelcomePage() {
           Login
         </button>
 
-        {/* جملة إنشاء حساب */}
         <p
           style={{
             marginTop: "15px",

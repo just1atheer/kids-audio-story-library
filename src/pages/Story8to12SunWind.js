@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Story8to12SunWind() {
+function Story8to12SunWind() {
   return (
     <div style={{ padding: "40px", maxWidth: "650px", margin: "auto" }}>
       <h1 style={{ color: "#4f46e5", textAlign: "center" }}>
@@ -37,12 +37,13 @@ export default function Story8to12SunWind() {
           textAlign: "center",
         }}
       >
-        A classic story about the Sun and the Wind trying to prove who is
-        stronger.
+        A classic fable about a friendly competition between the Sun and the
+        Wind to decide who is stronger.
       </p>
 
       <audio controls style={{ marginTop: "25px", width: "100%" }}>
         <source src="https://files.catbox.moe/n89fox.mp3" type="audio/mp3" />
+        Your browser does not support audio.
       </audio>
 
       <Link to="/quiz-sunwind">
@@ -65,3 +66,5 @@ export default function Story8to12SunWind() {
     </div>
   );
 }
+
+export default Story8to12SunWind;

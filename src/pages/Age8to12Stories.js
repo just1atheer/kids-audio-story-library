@@ -37,15 +37,15 @@ function Age8to12Stories() {
                 marginBottom: "15px",
               }}
             />
-            <h2 style={{ color: "#4f46e5" }}>The Brave Lion</h2>
+            <h2 style={{ color: "#4f46e5" }}>The Lion</h2>
             <p style={{ color: "#666" }}>
-              A story about courage and doing the right thing.
+              A brave lion hears a strange noise in the jungle…
             </p>
           </div>
         </Link>
 
-        {/* قصة الشمس والرياح */}
-        <Link to="/story-sun-wind" style={{ textDecoration: "none" }}>
+        {/* قصة الشمس والريح */}
+        <Link to="/story-sunwind" style={{ textDecoration: "none" }}>
           <div
             style={{
               background: "#fff",
@@ -57,7 +57,7 @@ function Age8to12Stories() {
           >
             <img
               src="https://i.imgur.com/rTwrXqQ.png"
-              alt="Sun and Wind Story"
+              alt="Sun and Wind"
               style={{
                 width: "60%",
                 maxHeight: "160px",
@@ -65,9 +65,9 @@ function Age8to12Stories() {
                 marginBottom: "15px",
               }}
             />
-            <h2 style={{ color: "#4f46e5" }}>The Sun and the Wind</h2>
+            <h2 style={{ color: "#4f46e5" }}>The Sun & The Wind</h2>
             <p style={{ color: "#666" }}>
-              A story about kindness vs. force.
+              A friendly competition to see who is stronger.
             </p>
           </div>
         </Link>
