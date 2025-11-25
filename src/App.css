@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding-top: 90px;  /* يخلي مساحة فوق للـ Navbar */
+}
+.stories-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f4f6ff;
+}
+
+.stories-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.stories-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.stories-header p {
+  color: #555;
+}
+
+.stories-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.story-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.story-image-wrapper {
+  background: #eef2ff;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.story-info {
+  padding: 16px 18px 20px;
+}
+
+.story-info h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.story-category {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.story-btn {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.story-btn:hover {
+  background: #4338ca;
+}
