@@ -8,19 +8,55 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  // هنا الربط مع الباك إند
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
 
     if (email.trim() === "" || password.trim() === "") {
       setError("Please fill in all fields.");
       return;
     }
 
-    // تسجيل الدخول
-    localStorage.setItem("isLoggedIn", "true");
+    try {
+      const response = await fetch("http://localhost:8081/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+        credentials: "include",
+      });
 
-    // الانتقال لصفحة الفئات
-    navigate("/stories");
+      if (!response.ok) {
+        if (response.status === 401) {
+          setError("Email or password is incorrect.");
+        } else {
+          setError("Login failed. Please try again.");
+        }
+        return;
+      }
+
+      let data = null;
+      try {
+        data = await response.json();
+      } catch (err) {
+        // لو ما رجع JSON نكمل عادي
+      }
+
+      if (data && data.token) {
+        localStorage.setItem("token", data.token);
+      }
+
+      localStorage.setItem("isLoggedIn", "true");
+      navigate("/stories");
+    } catch (err) {
+      console.error(err);
+      setError("Cannot connect to server. Please try again later.");
+    }
   };
 
   return (
@@ -46,13 +82,11 @@ export default function LoginPage() {
           fontFamily: "Arial",
         }}
       >
-        {/* العنوان */}
         <h1 style={{ color: "#4f46e5", marginBottom: "10px" }}>Welcome Back</h1>
         <p style={{ color: "#666", marginBottom: "25px" }}>
           Login to continue exploring our stories
         </p>
 
-        {/* فورم */}
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -116,7 +150,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* رابط إنشاء حساب */}
         <p style={{ marginTop: "20px", fontSize: "15px", color: "#444" }}>
           Don’t have an account?{" "}
           <Link
@@ -134,4 +167,3 @@ export default function LoginPage() {
     </div>
   );
 }
-

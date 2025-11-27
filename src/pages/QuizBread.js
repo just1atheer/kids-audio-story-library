@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { saveQuizScore } from "../utils/saveQuiz";
 
 export default function QuizBread() {
+  const navigate = useNavigate();
+
+  // جلب الطفل النشط
+  const childId = localStorage.getItem("activeChildId");
+
   const question = "What were the monkey and the cat fighting over?";
 
   const options = [
@@ -14,7 +21,19 @@ export default function QuizBread() {
 
   const checkAnswer = (option) => {
     setSelected(option.id);
+
+    // حساب الدرجة: سؤال واحد فقط
+    const score = option.isCorrect ? 100 : 0;
+
     setResult(option.isCorrect ? "Correct! 🎉" : "Wrong Answer ❌");
+
+    // حفظ النتيجة في progress
+    saveQuizScore(childId, "Bread", score);
+
+    // الانتقال لصفحة progress
+    setTimeout(() => {
+      navigate("/progress");
+    }, 1000);
   };
 
   return (

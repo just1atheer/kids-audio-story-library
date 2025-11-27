@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { saveQuizScore } from "../utils/saveQuiz";
 
 export default function QuizSunWind() {
+  const navigate = useNavigate();
+  const childId = localStorage.getItem("activeChildId");
 
   const question = "Who was stronger?";
 
@@ -15,7 +19,16 @@ export default function QuizSunWind() {
 
   const checkAnswer = (option) => {
     setSelected(option.id);
+
+    const score = option.isCorrect ? 100 : 0;
+
     setResult(option.isCorrect ? "Correct! 🎉" : "Wrong Answer ❌");
+
+    saveQuizScore(childId, "Sun & Wind", score);
+
+    setTimeout(() => {
+      navigate("/progress");
+    }, 1000);
   };
 
   return (

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { saveQuizScore } from "../utils/saveQuiz";
 
 export default function QuizDog() {
+  const navigate = useNavigate();
+
+  // جلب الطفل النشط
+  const childId = localStorage.getItem("activeChildId");
+
   const question = "What did the dog have?";
 
   const options = [
@@ -14,7 +21,18 @@ export default function QuizDog() {
 
   const checkAnswer = (option) => {
     setSelected(option.id);
+
+    const score = option.isCorrect ? 100 : 0;
+
     setResult(option.isCorrect ? "Correct! 🎉" : "Wrong Answer ❌");
+
+    // حفظ النتيجة
+    saveQuizScore(childId, "Dog", score);
+
+    // الانتقال لصفحة progress بعد 1 ثانية
+    setTimeout(() => {
+      navigate("/progress");
+    }, 1000);
   };
 
   return (

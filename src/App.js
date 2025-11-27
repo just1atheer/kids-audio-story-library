@@ -32,6 +32,16 @@ import Story8to12SunWind from "./pages/Story8to12SunWind";
 import QuizLion from "./pages/QuizLion";
 import QuizSunWind from "./pages/QuizSunWind";
 
+// صفحات الوالد
+import ParentDashboard from "./pages/ParentDashboard";
+import AddChildPage from "./pages/AddChildPage";
+import ParentProgress from "./pages/ParentProgress";
+
+// صفحات الأدمن الجديدة
+import AdminHome from "./pages/AdminHome";
+import AdminAddStory from "./pages/AdminAddStory";
+import AdminAddQuiz from "./pages/AdminAddQuiz";
+
 function App() {
   return (
     <Router>
@@ -69,6 +79,16 @@ function App() {
         <Route path="/story-sunwind" element={<Story8to12SunWind />} />
         <Route path="/quiz-lion" element={<QuizLion />} />
         <Route path="/quiz-sunwind" element={<QuizSunWind />} />
+
+        {/* صفحات الوالد */}
+        <Route path="/parent" element={<ParentDashboard />} />
+        <Route path="/add-child" element={<AddChildPage />} />
+        <Route path="/progress" element={<ParentProgress />} />
+
+        {/* صفحات الأدمن */}
+        <Route path="/admin" element={<AdminHome />} />
+        <Route path="/admin/add-story" element={<AdminAddStory />} />
+        <Route path="/admin/add-quiz" element={<AdminAddQuiz />} />
 
       </Routes>
     </Router>
