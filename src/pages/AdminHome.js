@@ -1,43 +1,57 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminHome() {
+  const navigate = useNavigate();
+
   return (
-    <div style={{ padding: "40px", fontFamily: "Arial" }}>
-      <h1 style={{ marginBottom: "30px", color: "#4f46e5" }}>Admin Panel</h1>
+    <div
+      style={{
+        paddingTop: "100px",
+        textAlign: "center",
+        fontFamily: "Poppins, sans-serif",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "48px",
+          fontWeight: "700",
+          marginBottom: "10px",
+        }}
+      >
+        👋 Welcome Admin
+      </h1>
 
-      <Link to="/admin/add-story">
-        <button
-          style={{
-            padding: "12px 20px",
-            marginRight: "15px",
-            background: "#6a0dad",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-          }}
-        >
-          ➕ Add Story
-        </button>
-      </Link>
+      <p
+        style={{
+          fontSize: "22px",
+          color: "#444",
+          marginBottom: "40px",
+        }}
+      >
+        Manage stories & quizzes easily
+      </p>
 
-      <Link to="/admin/add-quiz">
-        <button
-          style={{
-            padding: "12px 20px",
-            background: "#ff4fa3",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-          }}
-        >
-          📝 Add Quiz
-        </button>
-      </Link>
+      <button
+        onClick={() => navigate("/admin/add-story")}
+        style={{
+          padding: "15px 35px",
+          fontSize: "22px",
+          cursor: "pointer",
+          background: "#43A047",
+          color: "white",
+          border: "none",
+          borderRadius: "10px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          margin: "0 auto",
+        }}
+      >
+        <span style={{ fontSize: "26px" }}>➕</span>
+        Add Story & Quiz
+      </button>
     </div>
   );
 }

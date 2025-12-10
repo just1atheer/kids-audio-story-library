@@ -11,50 +11,45 @@ function Navbar() {
         justifyContent: "space-between",
         alignItems: "center",
         color: "white",
+        fontFamily: "Poppins, sans-serif",
       }}
     >
-      <h2 style={{ margin: 0 }}>Kids Story App</h2>
+      {/* عنوان التطبيق */}
+      <h2 style={{ margin: 0, fontWeight: "700" }}>Story App</h2>
 
-      <div style={{ display: "flex", gap: "20px" }}>
+      {/* الروابط */}
+      <div style={{ display: "flex", gap: "30px", fontSize: "18px" }}>
 
-        {/* 1. Home */}
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+        {/* Home */}
+        <Link
+          to="/home"
+          style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
+        >
           Home
         </Link>
 
-        {/* 2. Admin (صفحة الأدمن الرئيسية) */}
-        <Link to="/admin" style={{ color: "white", textDecoration: "none" }}>
+        {/* Admin */}
+        <Link
+          to="/admin"
+          style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
+        >
           Admin
         </Link>
 
-        {/* 3. Login */}
-        <Link to="/login" style={{ color: "white", textDecoration: "none" }}>
+        {/* Login */}
+        <Link
+          to="/login"
+          style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
+        >
           Login
         </Link>
 
-        {/* 4. Sign Up */}
-        <Link to="/signup" style={{ color: "white", textDecoration: "none" }}>
+        {/* Sign Up */}
+        <Link
+          to="/signup"
+          style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
+        >
           Sign Up
-        </Link>
-
-        {/* 5. Parent Dashboard */}
-        <Link to="/parent" style={{ color: "white", textDecoration: "none" }}>
-          Parent Dashboard
-        </Link>
-
-        {/* 6. Add Child */}
-        <Link to="/add-child" style={{ color: "white", textDecoration: "none" }}>
-          Add Child
-        </Link>
-
-        {/* 7. Stories */}
-        <Link to="/stories" style={{ color: "white", textDecoration: "none" }}>
-          Stories
-        </Link>
-
-        {/* 8. Progress */}
-        <Link to="/progress" style={{ color: "white", textDecoration: "none" }}>
-          Progress
         </Link>
 
       </div>
