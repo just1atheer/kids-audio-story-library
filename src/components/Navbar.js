@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  if (!isLoggedIn) return null; // 🔥 إخفاء البار قبل تسجيل الدخول
+
   return (
     <nav
       style={{
@@ -14,13 +18,13 @@ function Navbar() {
         fontFamily: "Poppins, sans-serif",
       }}
     >
-      {/* عنوان التطبيق */}
       <h2 style={{ margin: 0, fontWeight: "700", fontSize: "24px" }}>
         Kids Audio Story Library 🎧
       </h2>
 
-      {/* الروابط */}
       <div style={{ display: "flex", gap: "30px", fontSize: "18px" }}>
+
+        {/* 🔹 Home */}
         <Link
           to="/home"
           style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
@@ -28,19 +32,18 @@ function Navbar() {
           Home
         </Link>
 
+        {/* 🔹 Start → ترجع لصفحة اختيار الدور */}
         <Link
-          to="/login"
+          to="/"
+          onClick={() => {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("role");
+          }}
           style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
         >
-          Login
+          Start
         </Link>
 
-        <Link
-          to="/signup"
-          style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
-        >
-          Sign Up
-        </Link>
       </div>
     </nav>
   );
