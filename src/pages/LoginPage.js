@@ -17,7 +17,14 @@ export default function LoginPage() {
       return;
     }
 
-    const role = localStorage.getItem("role");
+    // 🔥 يجيب الدور المختار من صفحة Select Role أو صفحة Sign Up
+    let role = localStorage.getItem("role");
+
+    // لو مافي دور نخلي الدور User بشكل افتراضي
+    if (!role) {
+      role = "user";
+      localStorage.setItem("role", "user");
+    }
 
     try {
       const response = await fetch("http://localhost:8081/api/auth/login", {
@@ -39,13 +46,18 @@ export default function LoginPage() {
       let data = null;
       try {
         data = await response.json();
-      } catch (err) {}
+      } catch {}
 
-      if (data?.token) localStorage.setItem("token", data.token);
+      if (data?.token) {
+        localStorage.setItem("token", data.token);
+      }
 
       localStorage.setItem("isLoggedIn", "true");
 
-      navigate(role === "admin" ? "/admin" : "/home");
+      // 🔥 تحويل المستخدم حسب الدور
+      if (role === "admin") navigate("/admin");
+      else navigate("/home");
+
     } catch (err) {
       console.error(err);
       setError("Cannot connect to server. Please try again later.");
@@ -75,18 +87,15 @@ export default function LoginPage() {
           textAlign: "center",
         }}
       >
-        {/* العنوان */}
         <h1 style={{ color: "#4f46e5", marginBottom: "10px", fontWeight: "700" }}>
           Welcome Back
         </h1>
 
-        {/* الوصف */}
         <p style={{ color: "#666", marginBottom: "25px", fontSize: "16px" }}>
           Login to continue exploring our stories
         </p>
 
         <form onSubmit={handleLogin}>
-          {/* Email */}
           <input
             type="email"
             placeholder="Email"
@@ -100,11 +109,9 @@ export default function LoginPage() {
               borderRadius: "10px",
               border: "1px solid #ccc",
               fontSize: "16px",
-              fontFamily: "Poppins",
             }}
           />
 
-          {/* Password */}
           <input
             type="password"
             placeholder="Password"
@@ -118,18 +125,15 @@ export default function LoginPage() {
               borderRadius: "10px",
               border: "1px solid #ccc",
               fontSize: "16px",
-              fontFamily: "Poppins",
             }}
           />
 
-          {/* Error */}
           {error && (
             <p style={{ color: "red", marginBottom: "10px", fontSize: "15px" }}>
               {error}
             </p>
           )}
 
-          {/* Login Button */}
           <button
             type="submit"
             style={{
@@ -142,7 +146,6 @@ export default function LoginPage() {
               fontSize: "18px",
               cursor: "pointer",
               marginTop: "10px",
-              fontFamily: "Poppins",
               fontWeight: "600",
             }}
           >
@@ -150,7 +153,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Create Account */}
         <p style={{ marginTop: "20px", fontSize: "15px", color: "#444" }}>
           Don’t have an account?{" "}
           <Link
@@ -159,7 +161,6 @@ export default function LoginPage() {
               color: "#4f46e5",
               textDecoration: "underline",
               fontWeight: "600",
-              fontFamily: "Poppins",
             }}
           >
             Create one

@@ -26,9 +26,10 @@ export default function QuizSunWind() {
 
     saveQuizScore(childId, "Sun & Wind", score);
 
-    setTimeout(() => {
-      navigate("/progress");
-    }, 1000);
+    // ❌ حذف التحويل لصفحة progress
+    // setTimeout(() => {
+    //   navigate("/progress");
+    // }, 1000);
   };
 
   return (

@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 export default function SelectRolePage() {
   const navigate = useNavigate();
 
+  const chooseRole = (role) => {
+    localStorage.setItem("role", role); // نحفظ الدور
+    navigate("/login"); // نرسل المستخدم لصفحة تسجيل الدخول
+  };
+
   return (
     <div
       style={{
@@ -22,7 +27,7 @@ export default function SelectRolePage() {
 
       <div style={{ display: "flex", gap: "25px" }}>
         <button
-          onClick={() => navigate("/login")}
+          onClick={() => chooseRole("user")}
           style={{
             padding: "15px 35px",
             background: "#4f46e5",
@@ -37,7 +42,7 @@ export default function SelectRolePage() {
         </button>
 
         <button
-          onClick={() => navigate("/login")}
+          onClick={() => chooseRole("admin")}
           style={{
             padding: "15px 35px",
             background: "#ff4f81",

@@ -29,10 +29,10 @@ export default function QuizLion() {
     // حفظ النتيجة في البروقرس
     saveQuizScore(childId, "Lion", score);
 
-    // الانتقال لصفحة progress
-    setTimeout(() => {
-      navigate("/progress");
-    }, 1000);
+    // ❌ إزالة التحويل لصفحة progress
+    // setTimeout(() => {
+    //   navigate("/progress");
+    // }, 1000);
   };
 
   return (

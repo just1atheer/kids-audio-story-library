@@ -1,72 +1,96 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SelectRolePage() {
+export default function HomePage() {
   const navigate = useNavigate();
+
+  const cardStyle = {
+    background: "white",
+    padding: "30px",
+    borderRadius: "15px",
+    boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+    textAlign: "center",
+    cursor: "pointer",
+    transition: "0.2s",
+    fontFamily: "Poppins, sans-serif",
+  };
 
   return (
     <div
       style={{
         minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#f3f3ff",
+        background: "#f5f4ff",
+        padding: "50px",
         fontFamily: "Poppins, sans-serif",
-        paddingTop: "40px",
       }}
     >
       <h1
         style={{
-          fontSize: "55px",
-          marginBottom: "40px",
+          textAlign: "center",
           color: "#4f46e5",
+          fontSize: "45px",
           fontWeight: "700",
+          marginBottom: "40px",
         }}
       >
-        Choose Your Role
+       Welcome to Kids Audio Story Library 🎧💜
+
       </h1>
 
-      <div style={{ display: "flex", gap: "40px" }}>
+      {/* الكروت */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: "30px",
+          maxWidth: "1100px",
+          margin: "0 auto",
+        }}
+      >
 
-        {/* USER BUTTON */}
-        <button
-          onClick={() => navigate("/login")}
-          style={{
-            padding: "25px 60px",
-            background: "#4f46e5",
-            color: "white",
-            border: "none",
-            borderRadius: "12px",
-            cursor: "pointer",
-            fontSize: "28px",
-            fontWeight: "600",
-            boxShadow: "0 6px 15px rgba(0,0,0,0.2)",
-            transition: "0.2s",
-          }}
+        {/* Stories */}
+        <div
+          style={cardStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          onClick={() => navigate("/stories")}
         >
-          User
-        </button>
+          <h2 style={{ color: "#4f46e5" }}>📚 Stories</h2>
+          <p style={{ color: "#666" }}>Explore age-grouped stories.</p>
+        </div>
 
-        {/* ADMIN BUTTON */}
-        <button
-          onClick={() => navigate("/login")}
-          style={{
-            padding: "25px 60px",
-            background: "#ff4f81",
-            color: "white",
-            border: "none",
-            borderRadius: "12px",
-            cursor: "pointer",
-            fontSize: "28px",
-            fontWeight: "600",
-            boxShadow: "0 6px 15px rgba(0,0,0,0.2)",
-            transition: "0.2s",
-          }}
+        {/* Parent Dashboard */}
+        <div
+          style={cardStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          onClick={() => navigate("/parent")}
         >
-          Admin
-        </button>
+          <h2 style={{ color: "#4f46e5" }}>👨‍👧 Parent Dashboard</h2>
+          <p style={{ color: "#666" }}>Manage your children list.</p>
+        </div>
+
+        {/* Add Child */}
+        <div
+          style={cardStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          onClick={() => navigate("/add-child")}
+        >
+          <h2 style={{ color: "#4f46e5" }}>➕ Add Child</h2>
+          <p style={{ color: "#666" }}>Add a new child profile.</p>
+        </div>
+
+        {/* Progress */}
+        <div
+          style={cardStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          onClick={() => navigate("/progress")}
+        >
+          <h2 style={{ color: "#4f46e5" }}>📊 Progress</h2>
+          <p style={{ color: "#666" }}>View progress and quiz scores.</p>
+        </div>
 
       </div>
     </div>

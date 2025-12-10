@@ -26,13 +26,13 @@ export default function QuizDog() {
 
     setResult(option.isCorrect ? "Correct! 🎉" : "Wrong Answer ❌");
 
-    // حفظ النتيجة
+    // حفظ النتيجة فقط
     saveQuizScore(childId, "Dog", score);
 
-    // الانتقال لصفحة progress بعد 1 ثانية
-    setTimeout(() => {
-      navigate("/progress");
-    }, 1000);
+    // ❌ إزالة الانتقال لصفحة progress
+    // setTimeout(() => {
+    //   navigate("/progress");
+    // }, 1000);
   };
 
   return (

@@ -15,12 +15,12 @@ function Navbar() {
       }}
     >
       {/* عنوان التطبيق */}
-      <h2 style={{ margin: 0, fontWeight: "700" }}>Story App</h2>
+      <h2 style={{ margin: 0, fontWeight: "700", fontSize: "24px" }}>
+        Kids Audio Story Library 🎧
+      </h2>
 
       {/* الروابط */}
       <div style={{ display: "flex", gap: "30px", fontSize: "18px" }}>
-
-        {/* Home */}
         <Link
           to="/home"
           style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
@@ -28,15 +28,6 @@ function Navbar() {
           Home
         </Link>
 
-        {/* Admin */}
-        <Link
-          to="/admin"
-          style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
-        >
-          Admin
-        </Link>
-
-        {/* Login */}
         <Link
           to="/login"
           style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
@@ -44,14 +35,12 @@ function Navbar() {
           Login
         </Link>
 
-        {/* Sign Up */}
         <Link
           to="/signup"
           style={{ color: "white", textDecoration: "none", fontWeight: "500" }}
         >
           Sign Up
         </Link>
-
       </div>
     </nav>
   );

@@ -29,10 +29,10 @@ export default function QuizIceCream() {
     // حفظ النتيجة
     saveQuizScore(childId, "Ice Cream", score);
 
-    // الانتقال لصفحة progress
-    setTimeout(() => {
-      navigate("/progress");
-    }, 1000);
+    // ❌ إلغاء الانتقال إلى /progress
+    // setTimeout(() => {
+    //   navigate("/progress");
+    // }, 1000);
   };
 
   return (
